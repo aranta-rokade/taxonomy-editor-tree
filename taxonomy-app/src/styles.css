@@ -1,0 +1,88 @@
+@import '~ng2-tree/styles.css';  
+/* You can add global styles to this file, and also import other style files */
+table, th, td {
+  border: 1px solid black;
+  padding: 2px;  
+}
+
+a {
+  color: blue;
+}
+
+a:hover {
+  cursor: pointer;
+  color: blue;
+}
+
+
+/*************CUSTOM CSS***********************/
+body{
+  background-color: #fff4d3;
+}
+.header{
+  text-align: center;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #fedcd2; 
+  color: #df744a
+}
+.container{
+  padding: 20px;
+}
+
+
+
+/*************CUSTOM TREE CSS***********************/
+tree-internal .tree .node-selected {
+  /* color: grey; */
+}
+
+/* folder bullet */
+tree-internal .tree .folding.node-expanded::before,
+tree-internal .tree .folding.node-collapsed::before,
+tree-internal .tree .folding.node-empty::before {
+  color: #dc8239;
+}
+
+/* folder text */
+tree-internal .tree .folding.node-expanded + .node-value {
+  color: black;
+}
+/* leaves bullet */
+tree-internal .tree .folding.node-leaf::before {
+  color:#dc8239;
+}
+/* leaves text */
+tree-internal .tree .folding.node-leaf + .node-value {
+  color: black;
+}
+/* underline */
+tree-internal .tree .node-value::after {
+  background-color: #dc8239;
+}
+/*style the menu*/
+.node-menu .node-menu-content{
+  background-color: #e4c6bd;
+}
+
+/* menu item */
+.node-menu .node-menu-content .node-menu-item{
+  color: #FFFFFF;
+}
+.node-menu .node-menu-content .node-menu-item:hover{
+  background-color: #d5a799;
+}
+/* menu bullet new folder*/
+.node-menu .node-menu-content .node-menu-item .node-menu-item-icon.remove::before,
+.node-menu .node-menu-content .node-menu-item .node-menu-item-icon.rename::before,
+.node-menu .node-menu-content .node-menu-item .node-menu-item-icon.new-folder::before,
+.node-menu .node-menu-content .node-menu-item .node-menu-item-icon.new-tag::before {
+  color:#dc8239;
+}
+
+.node-menu .node-menu-content .node-menu-item .node-menu-item-icon.remove + .node-menu-item-value,
+.node-menu .node-menu-content .node-menu-item .node-menu-item-icon.rename + .node-menu-item-value,
+.node-menu .node-menu-content .node-menu-item .node-menu-item-icon.new-folder + .node-menu-item-value,
+.node-menu .node-menu-content .node-menu-item .node-menu-item-icon.new-tag + .node-menu-item-value {
+  color:white;
+}

@@ -1,0 +1,8 @@
+<h3>Classification Tree</h3>
+<div class="tree-data">
+  <tree [tree]="tree"
+      (nodeRemoved)="handleRemoved($event)"
+      (nodeRenamed)="handleRenamed($event)"
+      (nodeSelected)="handleSelected($event)"
+      (nodeCreated)="handleCreated($event)"></tree>
+</div>
