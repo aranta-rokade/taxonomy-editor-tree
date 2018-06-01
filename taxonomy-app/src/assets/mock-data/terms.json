@@ -1,118 +1,26 @@
 {
-  "terms": {
-    "settings": {
-      "menuItems": [
-        {
-          "name": "New Catagory",
-          "action": 0,
-          "cssClass": "new-folder"
-        },
-        {
-          "name": "New Term",
-          "action": 1,
-          "cssClass": "new-tag"
-        },
-        {
-          "name": "Rename",
-          "action": 2,
-          "cssClass": "rename"
-        },
-        {
-          "name": "Remove",
-          "action": 3,
-          "cssClass": "remove"
-        }
+  "nodes" : [
+    {
+      "id": 1,
+      "name": "root1",
+      "children": [
+        { "id": 2, "name": "child1" },
+        { "id": 3, "name": "child2" }
       ]
     },
-    "value": "United State",
-    "id": 1,
-    "children": [
-      {
-        "value": "Virginia",
-        "id": 2,
-        "children": [
-          {
-            "value": "Fairfax",
-            "id": 3,
-            "children": [
-              {
-                "value": "University Dr",
-                "id": 4
-              },
-              {
-                "value": "Jermantown",
-                "id": 5
-              },
-              {
-                "value": "Main Street",
-                "id": 6
-              }
-            ]
-          },
-          {
-            "value": "Herndon",
-            "id": 7
-          },
-          {
-            "value": "Falls Chruch",
-            "id": 8
-          }
-        ]
-      },
-      {
-        "value": "New York",
-        "id": 9,
-        "children": [
-          {
-            "value": "New York City",
-            "id": 10,
-            "children": [
-              {
-                "value": "Manhattan",
-                "id": 11
-              },
-              {
-                "value": "Wall Stree",
-                "id": 12
-              },
-              {
-                "value": "Bradway",
-                "id": 13
-              },
-              {
-                "value": "Mandison Park",
-                "id": 14
-              }
-            ]
-          },
-          {
-            "value": "Long Island",
-            "id": 15
-          },
-          {
-            "value": "New Jersey",
-            "id": 16
-          }
-        ]
-      },
-      {
-        "value": "California",
-        "id": 17,
-        "children": [
-          {
-            "value": "Los Angeles",
-            "id": 18
-          },
-          {
-            "value": "Long Beach",
-            "id": 19
-          },
-          {
-            "value": "Palo Alto",
-            "id": 20
-          }
-        ]
-      }
-    ]
-  }
+    {
+      "id": 4,
+      "name": "root2",
+      "children": [
+        { "id": 5, "name": "child2.1" },
+        {
+          "id": 6,
+          "name": "child2.2",
+          "children": [
+            { "id": 7, "name": "subsub" }
+          ]
+        }
+      ]
+    }
+  ]
 }

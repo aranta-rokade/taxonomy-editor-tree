@@ -1,4 +1,5 @@
-@import '~ng2-tree/styles.css';  
+/* @import '~ng2-tree/styles.css';  */
+@import '~angular-tree-component/dist/angular-tree-component.css'; 
 /* You can add global styles to this file, and also import other style files */
 table, th, td {
   border: 1px solid black;
@@ -24,65 +25,40 @@ body{
   border-radius: 10px;
   padding: 20px;
   background-color: #fedcd2; 
-  color: #df744a
+  color: #bb4d21
 }
 .container{
   padding: 20px;
 }
 
-
-
-/*************CUSTOM TREE CSS***********************/
-tree-internal .tree .node-selected {
-  /* color: grey; */
+/********************************************/
+.tree-node {
+  color: #26A65B;
+}
+.tree-node.tree-node-leaf {
+  color: #446CB3;
+}
+.tree-menu {
+  color: #bb4d21;
 }
 
-/* folder bullet */
-tree-internal .tree .folding.node-expanded::before,
-tree-internal .tree .folding.node-collapsed::before,
-tree-internal .tree .folding.node-empty::before {
-  color: #dc8239;
+.tree-menu .tree-menu-option:hover {
+  background-color: #cfbd86;
 }
 
-/* folder text */
-tree-internal .tree .folding.node-expanded + .node-value {
-  color: black;
-}
-/* leaves bullet */
-tree-internal .tree .folding.node-leaf::before {
-  color:#dc8239;
-}
-/* leaves text */
-tree-internal .tree .folding.node-leaf + .node-value {
-  color: black;
-}
-/* underline */
-tree-internal .tree .node-value::after {
-  background-color: #dc8239;
-}
-/*style the menu*/
-.node-menu .node-menu-content{
-  background-color: #e4c6bd;
+.fa {
+  padding: 3px;
 }
 
-/* menu item */
-.node-menu .node-menu-content .node-menu-item{
-  color: #FFFFFF;
-}
-.node-menu .node-menu-content .node-menu-item:hover{
-  background-color: #d5a799;
-}
-/* menu bullet new folder*/
-.node-menu .node-menu-content .node-menu-item .node-menu-item-icon.remove::before,
-.node-menu .node-menu-content .node-menu-item .node-menu-item-icon.rename::before,
-.node-menu .node-menu-content .node-menu-item .node-menu-item-icon.new-folder::before,
-.node-menu .node-menu-content .node-menu-item .node-menu-item-icon.new-tag::before {
-  color:#dc8239;
+.node-content-wrapper:hover, .node-content-wrapper-active, 
+.node-content-wrapper.node-content-wrapper-active:hover, 
+.node-content-wrapper-active.node-content-wrapper-focused,
+.node-content-wrapper-focused{
+  background-color: #e5dbbd;
 }
 
-.node-menu .node-menu-content .node-menu-item .node-menu-item-icon.remove + .node-menu-item-value,
-.node-menu .node-menu-content .node-menu-item .node-menu-item-icon.rename + .node-menu-item-value,
-.node-menu .node-menu-content .node-menu-item .node-menu-item-icon.new-folder + .node-menu-item-value,
-.node-menu .node-menu-content .node-menu-item .node-menu-item-icon.new-tag + .node-menu-item-value {
-  color:white;
+.node-content-wrapper:hover .tree-menu{
+  display: inline !important;
 }
+
+/********************************************/

@@ -1,8 +1,48 @@
 <h3>Classification Tree</h3>
 <div class="tree-data">
-  <tree [tree]="tree"
-      (nodeRemoved)="handleRemoved($event)"
-      (nodeRenamed)="handleRenamed($event)"
-      (nodeSelected)="handleSelected($event)"
-      (nodeCreated)="handleCreated($event)"></tree>
+  <label>Categories: {{folderCount}}</label>
+  <label>Leaves: {{nodeCount}}</label>    
+  <br/><br/>
+  <tree-root #tree [nodes]="nodes" [options]="options">
+    <ng-template #treeNodeWrapperTemplate let-node let-index="index">
+      <div class="node-wrapper" [style.padding-left]="node.getNodePadding()">
+        <tree-node-expander [node]="node"></tree-node-expander>
+        <div class="node-content-wrapper" id="{{'content'+node.data.id}}"
+          [class.node-content-wrapper-active]="node.isActive"
+          [class.node-content-wrapper-focused]="node.isFocused"
+          (click)="node.mouseAction('click', $event)"
+          style="height: 20px">
+          <label>{{node.data.name}}</label>
+          <span class="tree-menu" style="display: none">
+            <span class="tree-menu-option tree-menu-edit"
+                  (click)="deleteNode(node, tree)">
+                  <i class="fa fa-trash-o" aria-hidden="true" title="Delete Term"></i>
+            </span>
+            <span class="tree-menu-option tree-menu-edit" 
+                  (click)="actionClick(node, tree, term, 1)">
+                  <i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit Term"></i>
+            </span>
+            <span *ngIf="!node.isLeaf" 
+                  class="tree-menu-option tree-menu-add" 
+                  (click)="actionClick(node, tree, term, 2)">
+                  <i class="fa fa-sticky-note-o" aria-hidden="true" title="Add Term"></i>
+            </span>
+            <span *ngIf="!node.isLeaf"
+                  class="tree-menu-option tree-menu-add"
+                  (click)="actionClick(node, tree, term, 3)">
+                  <i class="fa fa-folder-o" aria-hidden="true" title="Add Category"></i>
+            </span>
+          </span>
+          <div class="actionPane" style="visibility: hidden" id="{{node.data.id}}">
+            <input type="text" #term value=""/> 
+            <span *ngIf="!node.isLeaf"
+                  class="tree-menu-option tree-menu-add"
+                  (click)="okClick(node, tree, term)">
+                  <i class="fa fa-check" aria-hidden="true" title="Add Category"></i>
+            </span>
+          </div> 
+        </div>
+      </div>
+    </ng-template>
+  </tree-root>
 </div>
