@@ -97,7 +97,7 @@ export class HomeComponent implements OnInit {
     }
   }
   openPopup(node , tree , header , ops) {
-    const activeModal = this.modalService.open(InputComponent, { size: 'lg', container: 'nb-layout' });
+    const activeModal = this.modalService.open(InputComponent);
     activeModal.componentInstance.modalHeader = header;
     activeModal.componentInstance.modalOperation = ops;
     activeModal.componentInstance.modalNode = node;
