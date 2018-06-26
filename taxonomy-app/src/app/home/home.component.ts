@@ -3,6 +3,8 @@ import { Http, Response, Headers } from '@angular/http';
 import { ViewChild } from '@angular/core'
 import { TreeComponent, TREE_ACTIONS, KEYS, IActionMapping, ITreeOptions } from 'angular-tree-component';
 import * as _ from 'lodash';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { InputComponent } from './input.component';
 
 @Component({
   selector: 'app-home',
@@ -55,7 +57,8 @@ export class HomeComponent implements OnInit {
     animateAcceleration: 1.2
   }
 
-  constructor(private http: Http) { }
+  constructor(private http: Http,
+     private modalService: NgbModal) { }
 
   ngOnInit() {
     this.getCount(this.nodes);
@@ -65,21 +68,47 @@ export class HomeComponent implements OnInit {
   private tree: TreeComponent;
 
   actionClick(node, tree, term, op){
-    var inputs = document.getElementsByClassName("actionPane");
-    for (var i = 0; i < inputs.length; i++) {
-      //inputs[i].style.visibility = "hidden";
-    } 
-    var wrapper = document.getElementsByClassName("node-content-wrapper");
-    for (var i = 0; i < wrapper.length; i++) {
-      //wrapper[i].style.height = "20px";
+    // var inputs = document.getElementsByClassName("actionPane");
+    // for (var i = 0; i < inputs.length; i++) {
+    //   //inputs[i].style.visibility = "hidden";
+    // } 
+    // var wrapper = document.getElementsByClassName("node-content-wrapper");
+    // for (var i = 0; i < wrapper.length; i++) {
+    //   //wrapper[i].style.height = "20px";
+    // }
+    // document.getElementById(node.data.id).style.visibility = "visible";
+    // if(op == 1)
+    //   term.value = node.data.name;
+    // else 
+    // term.value = "";
+    // this.operation = op;
+    // document.getElementById('content'+node.data.id).style.height="50px";
+    switch (op) {
+      case 1:
+        this.openPopup(node, tree , 'Edit' , 1);
+        break;
+      case 2:
+        this.openPopup(node, tree , 'Add Node' , 2);
+        break;
+      case 3:
+        this.openPopup(node, tree , 'Add Catagery', 3);
+        break;
+      default: alert('Invalid Action');
     }
-    document.getElementById(node.data.id).style.visibility = "visible";
-    if(op == 1)
-      term.value = node.data.name;
-    else 
-    term.value = "";
-    this.operation = op;
-    document.getElementById('content'+node.data.id).style.height="50px";
+  }
+  openPopup(node , tree , header , ops) {
+    const activeModal = this.modalService.open(InputComponent);
+    activeModal.componentInstance.modalHeader = header;
+    activeModal.componentInstance.modalOperation = ops;
+    activeModal.componentInstance.modalNode = node;
+    activeModal.componentInstance.modalTree = tree;
+    activeModal.result.then(() => {
+      console.log('When user closes');
+      this.tree.treeModel.update();
+    }, () => { console.log('Backdrop click')
+    });
+
+
   }
 
   okClick(node, tree, term) {
