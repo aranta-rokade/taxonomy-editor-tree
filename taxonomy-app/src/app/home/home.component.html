@@ -35,10 +35,9 @@
           </span>
           <div class="actionPane" style="visibility: hidden" id="{{node.data.id}}">
             <input type="text" #term value=""/> 
-            <span *ngIf="!node.isLeaf"
-                  class="tree-menu-option tree-menu-add"
-                  (click)="okClick(node, tree, term)">
-                  <i class="fa fa-check" aria-hidden="true" title="Add Category"></i>
+            <span class="tree-menu-option tree-menu-add">
+                  <i class="fa fa-check" aria-hidden="true" title="OK" (click)="okClick(node, tree, term)"></i>
+                  <i class="fa fa-times" aria-hidden="true" title="OK" (click)="cancelClick(node, tree, term)"></i>
             </span>
           </div> 
         </div>

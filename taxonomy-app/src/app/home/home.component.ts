@@ -46,7 +46,9 @@ export class HomeComponent implements OnInit {
     actionMapping: {
       mouse: {
         dblClick: (tree, node, $event) => {
-          if (node.hasChildren) TREE_ACTIONS.TOGGLE_EXPANDED(tree, node, $event);
+          if (node.hasChildren) {
+            TREE_ACTIONS.TOGGLE_EXPANDED(tree, node, $event);
+          }
         }
       }
     },
@@ -65,13 +67,13 @@ export class HomeComponent implements OnInit {
   private tree: TreeComponent;
 
   actionClick(node, tree, term, op){
-    var inputs = document.getElementsByClassName("actionPane");
+    var inputs = <HTMLCollectionOf<HTMLElement>>document.getElementsByClassName("actionPane");
     for (var i = 0; i < inputs.length; i++) {
-      //inputs[i].style.visibility = "hidden";
+      inputs[i].style.visibility = "hidden";
     } 
-    var wrapper = document.getElementsByClassName("node-content-wrapper");
+    var wrapper = <HTMLCollectionOf<HTMLElement>>document.getElementsByClassName("node-content-wrapper");
     for (var i = 0; i < wrapper.length; i++) {
-      //wrapper[i].style.height = "20px";
+      wrapper[i].style.height = "20px";
     }
     document.getElementById(node.data.id).style.visibility = "visible";
     if(op == 1)
@@ -95,13 +97,17 @@ export class HomeComponent implements OnInit {
         break;
       default: alert("Invalid Action");
     } 
-    var inputs = document.getElementsByClassName("actionPane");
+    this.cancelClick(node, tree, term);
+  }
+
+  cancelClick(node, tree, term) {
+    var inputs = <HTMLCollectionOf<HTMLElement>>document.getElementsByClassName("actionPane");
     for (var i = 0; i < inputs.length; i++) {
-      //inputs[i].style.visibility = "hidden";
+      inputs[i].style.visibility = "hidden";
     }
-    var wrapper = document.getElementsByClassName("node-content-wrapper");
+    var wrapper = <HTMLCollectionOf<HTMLElement>>document.getElementsByClassName("node-content-wrapper");
     for (var i = 0; i < wrapper.length; i++) {
-      //wrapper[i].style.height = "20px";
+      wrapper[i].style.height = "20px";
     }
   }
 

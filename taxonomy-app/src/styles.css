@@ -50,6 +50,14 @@ body{
   padding: 3px;
 }
 
+.fa-check {
+  color: #26A65B;
+}
+
+.fa-times {
+  color: #bb4d21;
+}
+
 .node-content-wrapper:hover, .node-content-wrapper-active, 
 .node-content-wrapper.node-content-wrapper-active:hover, 
 .node-content-wrapper-active.node-content-wrapper-focused,
